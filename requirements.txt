@@ -1,0 +1,14 @@
+tensorflow==2.3.0
+torch
+transformers
+tqdm
+sklearn
+sacremoses
+filelock
+seqeval
+sentencepiece
+wandb
+numpy
+tokenizers
+packaging
+huggingface-hub
