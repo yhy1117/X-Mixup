@@ -1,6 +1,6 @@
 # X-Mixup
 
-Implementation of ICLR 2022 paper "[Enhancing Cross-lingual Transfer by Manifold Mixup](https://openreview.net/pdf?id=OjPmfr9GkVv)" (updating...).
+Implementation of ICLR 2022 paper "[Enhancing Cross-lingual Transfer by Manifold Mixup](https://openreview.net/pdf?id=OjPmfr9GkVv)".
 
 
 ## Structure
@@ -15,9 +15,10 @@ Implementation of ICLR 2022 paper "[Enhancing Cross-lingual Transfer by Manifold
 │   │   ├── translate-train-en  # back-translation data
 │   ├── pawsx
 │   │   ├── en (each language)
-│   │   │   ├── train.tsv
+│   │   │   ├── train.tsv (only en)
 │   │   │   ├── dev_2k.tsv
-│   │   │   ├── test_2k.tsv        
+│   │   │   ├── test_2k.tsv
+│   │   ├── translate-train        
 │   │   ├── translate-test
 │   │   ├── translate-dev
 │   │   ├── translate-train-en
@@ -60,7 +61,7 @@ pip install -r requirements.txt
 ## Data
 Prepare data before the training phrase: 
 * Step 1: Download XTREME data from [XTREME repo](https://github.com/google-research/xtreme) (Note that we should keep the label of test set for evaluation).
-* Step 2: Download other translation data from xxx (updating...).
+* Step 2: Download other translation data from [here](https://drive.google.com/drive/folders/1UysSbPfkMBzQb6m2x7aO2WyWQehW38F3?usp=sharing).
 * Step 3: Organize data following the Structure part.
 
 ## Training & Evaluation

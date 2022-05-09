@@ -83,7 +83,7 @@ class Processor(DataProcessor):
         """See base class."""
         lines = self._read_tsv(os.path.join(data_dir, "XNLI-1.0/xnli.test.tsv"))
         if add_trans and lang != "en":
-            trans_lines = self._read_tsv(os.path.join(os.path.join(data_dir, "translate-test"), f"test.{lang}.tsv"))
+            trans_lines = self._read_tsv(os.path.join(os.path.join(data_dir, "translate-test"), f"test-{lang}-en-translated.tsv"))
         examples = []
         for (i, line) in enumerate(lines):
             if i == 0:

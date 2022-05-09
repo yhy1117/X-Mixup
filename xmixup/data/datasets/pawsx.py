@@ -25,7 +25,10 @@ class Processor(DataProcessor):
         if add_trans:
             en_lines = self._read_tsv(os.path.join(os.path.join(data_dir, "en"), "train.tsv"))
         for lg in self.train_languages:
-            lines = self._read_tsv(os.path.join(os.path.join(data_dir, lg), "train.tsv"))
+            if lg == "en":
+                lines = self._read_tsv(os.path.join(os.path.join(data_dir, lg), "train.tsv"))
+            else:
+                lines = self._read_tsv(os.path.join(os.path.join(data_dir, "translate-train"), f"en-{lg}-translated.tsv"))
             if add_back_trans and lg != "en":
                 back_trans_lines = self._read_tsv(os.path.join(data_dir, f"translate-train-en/translated_train.{lg}-en.tsv"))
             for (i, line) in enumerate(lines):
@@ -86,7 +89,7 @@ class Processor(DataProcessor):
         """See base class."""
         lines = self._read_tsv(os.path.join(os.path.join(data_dir, lang), "test_2k.tsv"))
         if add_trans and lang != "en":
-            trans_lines = self._read_tsv(os.path.join(os.path.join(data_dir, "translate-test"), f"test.{lang}.tsv"))
+            trans_lines = self._read_tsv(os.path.join(os.path.join(data_dir, "translate-test"), f"test-{lang}-en-translated.tsv"))
             assert len(lines) - 1 == len(trans_lines)
         examples = []
         for (i, line) in enumerate(lines[1:]):
