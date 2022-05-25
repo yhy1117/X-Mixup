@@ -83,9 +83,13 @@ class SquadProcessor(DataProcessor):
                         input_data = json.load(reader)["data"]
                     examples = self._create_examples(input_data, "train", "en")
                 else:
-                    data_dir = os.path.join(data_dir, "squad/translate-train")
                     for lang in self.train_languages:
-                        filename = f"squad.translate.train.en-{lang}.json"
+                        if lang == "en":
+                            data_dir = os.path.join(data_dir, "squad")
+                            filename = "train-v1.1.json"
+                        else:
+                            data_dir = os.path.join(data_dir, "squad/translate-train")
+                            filename = f"squad.translate.train.en-{lang}.json"
                         with open(os.path.join(data_dir, filename), "r", encoding="utf-8") as reader:
                             input_data = json.load(reader)["data"]
                             example = self._create_examples(input_data, "train", lang)
